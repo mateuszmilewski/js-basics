@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hoisting Example</title>
+
+</head>
+<body>
+    <h1>
+        Hoisting - look in console // using console.log only...
+    </h1>
+    <script>
+        console.log("Hoisting example");
+
+
+        // really important thing - var keyword is mostly the case the let and const is bahaving more like std 
+        // almost in same way like in "normal" languages :)
+
+
+        // so std:
+        var v1;
+        console.log(v1);
+        v1 = 5;
+        console.log(v1);
+
+
+        // is at the end same as:
+        console.log(v2);
+        var v2 = 5;
+        console.log(v2);
+
+
+
+        // an side subject - scope of the var is really strange - let keyword fix it
+
+        var v3 = 5;
+        console.log(v3);
+
+        {
+            // in normal lan. is should be antoher scope but not in the var and js...
+            var v3 = 6;
+            console.log(v3);
+        }
+
+        // now here will be changed value
+        console.log(v3);
+
+
+
+        // now here with let is more intuitive
+        let v4 = 10;
+        console.log(v4);
+
+        {
+            //console.log(v4); // NOK! // not defined - so also hoisting not works in same way as with var keyword
+            let v4 = 11;
+            console.log(v4);
+        }
+
+
+        // and here nicely we return to previous scope :)
+        console.log(v4);
+
+    </script>
+</body>
+</html>
