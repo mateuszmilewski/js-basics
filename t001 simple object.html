@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple object maintenance</title>
+</head>
+
+<body>
+
+    <h1>Simple object maintenance</h1>
+  
+    <div id="container" class="container"></div>
+    <button onclick="person.doSth()">Guzik</button>
+
+    <script>
+        let person = {}
+        person.name = "Mateusz";
+        person.wiek = 30;
+        person.gender = "male";
+        person.doSth = function() {
+            alert("Robię coś!")
+        };
+
+
+
+        let anotherPerson = {
+            name: "Inne imię",
+            wiek: 18
+        }
+
+        let c = document.getElementById("container");
+        document.getElementById("container").innerHTML = "<p>" + person.name + "</p>";
+        let e = document.createElement("div");
+        e.innerHTML = anotherPerson.wiek;
+        c.appendChild(e, c);
+
+    </script>
+</body>
+
+</html>
