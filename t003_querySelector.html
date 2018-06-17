@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Query Selector</title>
+</head>
+<body>
+    <h1>Query Selector Example</h1>
+    <h1>Another h1</h1>
+
+
+    <p>This is p number 1</p>
+    <p>This is p number 2</p>
+
+
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <div class="klasa"></div>
+    <script>
+
+        // this just taking first h1 from the top
+        let h1 = document.querySelector("h1");
+        h1.textContent = "Some new text provied by script!";
+
+
+        let ps = document.getElementsByTagName("p");
+        console.log(ps);
+        console.log(ps[0].innerText);
+        console.log(ps[0].innerHTML);
+        console.log(ps[0].outerHTML);
+        console.log(ps[0].textContent);
+
+
+        // Array.prototype.forEach()
+        let b = [1, 2];
+        console.log(Array.isArray(b))
+        console.log(b);
+        console.log(Array.isArray(ps)); // false
+        let convertedPs = Array.prototype.slice.call(ps);
+        console.log(convertedPs);
+        console.log(Array.isArray(convertedPs));
+        convertedPs.forEach( function(element, index) {
+            console.log(index + " " + element);
+            element.innerText = "modified p #" + (index + 1);
+        });
+
+
+
+        let divs = document.getElementsByClassName("klasa");
+
+        let convertedDivs = Array.prototype.slice.call(divs);
+        // here in forEach I've used some "arrow" functions
+        // something like each in ruby lan or even more like anom foo in Clojure
+        // btw... Clojure is da man!
+        convertedDivs.forEach((e, i, arr) => {
+            console.log("element: " + e + " , index: " + i + ", arr.length: " + arr.length);
+        });
+
+        convertedDivs.forEach((e,i) => {
+            e.textContent = i;
+        });
+
+        
+    </script>
+</body>
+</html>
